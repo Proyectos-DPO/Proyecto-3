@@ -7,6 +7,7 @@ import eventos.Evento;
 import eventos.Venue;
 import managers.EventoManager;
 import managers.PeticionManager;
+import persistencia.Persistencia;
 import sesion.SesionAdmin;
 import peticiones.Peticion;
 import peticiones.PeticionNuevoVenue;
@@ -208,8 +209,6 @@ public class ConsolaAdmin extends ConsolaBasica {
             }
         }
     }
-
-
     private void cancelarEventoDeOficio() {
 
         ArrayList<Evento> listaEventos = datos.getEventosAsList();
@@ -296,9 +295,9 @@ public class ConsolaAdmin extends ConsolaBasica {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Datos datos = ConsolaCliente.crearDummyDatos();
+        Datos datos = Persistencia.cargarDatos();
 
         ConsolaAdmin consolaAdmin = new ConsolaAdmin(datos);
         consolaAdmin.mostrarMenuAccesoAdmin();

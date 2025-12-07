@@ -13,6 +13,7 @@ import eventos.EventoCultural;
 
 import eventos.EventoReligioso;
 import eventos.Venue;
+import persistencia.Persistencia;
 import usuarios.Usuario;
 import usuarios.Organizador;
 
@@ -401,19 +402,19 @@ public class ConsolaOrganizador extends ConsolaBasica {
         if (opcionTipoLoc == 1) {
 
             Localidad<TiqueteIndividual> locGeneral =
-                    new Localidad<>(nombreLocalidad, false, precio, evento);
+                    new Localidad<TiqueteIndividual>(nombreLocalidad, false, precio, evento, false);
             nuevaLocalidad = locGeneral;
         }
         else if (opcionTipoLoc == 2) {
 
             Localidad<TiqueteIndividual> locNumerada =
-                    new Localidad<>(nombreLocalidad, true, precio, evento);
+                    new Localidad<TiqueteIndividual>(nombreLocalidad, true, precio, evento, false);
             nuevaLocalidad = locNumerada;
         }
         else if (opcionTipoLoc == 3) {
 
             Localidad<TiqueteMultiple> locMultiple =
-                    new Localidad<>(nombreLocalidad, false, precio, evento);
+                    new Localidad<TiqueteMultiple>(nombreLocalidad, false, precio, evento, true);
             nuevaLocalidad = locMultiple;
         }
 
@@ -460,9 +461,9 @@ public class ConsolaOrganizador extends ConsolaBasica {
     
     
 
-    public static void main( String[] args )
+    public static void main( String[] args ) throws Exception
     {
-        Datos datos = ConsolaCliente.crearDummyDatos();
+        Datos datos = Persistencia.cargarDatos();
 
         ConsolaOrganizador c = new ConsolaOrganizador(datos);
         c.mostrarMenuModoActuacion();
