@@ -2,13 +2,10 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class LoginView extends JPanel implements ActionListener{
+public class ClasePrueba extends JPanel implements ActionListener{
 	
 	private static final String LOGIN = "login";
 	private static final String REGISTER = "register";
@@ -29,10 +26,10 @@ public class LoginView extends JPanel implements ActionListener{
 	
 	private VentanaInicio papa;
 	
-	public LoginView(VentanaInicio papa) {
+	public ClasePrueba(VentanaInicio papa) {
 		
 		setLayout(new BorderLayout());
-		setPreferredSize(new Dimension(120,120));
+		setPreferredSize(new Dimension(1080,1080));
 		
 		JPanel formPanel = new JPanel();
 		formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));  // Este es un Layout que no vimos en clase, sin embargo existe y averiguamos como usarlo
@@ -67,17 +64,13 @@ public class LoginView extends JPanel implements ActionListener{
         
         add(formPanel, BorderLayout.CENTER);
 		this.papa = papa;
-	}
-
+		}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		String comando = e.getActionCommand( );
-        if( comando.equals( LOGIN ) )
-        {
-        	papa.showPanel("prueba");
-        }
+		
 	}
-	
+		// TODO Auto-generated method stub
+		
 }
+	
