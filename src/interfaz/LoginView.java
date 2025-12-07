@@ -32,7 +32,7 @@ public class LoginView extends JPanel implements ActionListener{
 	public LoginView(VentanaInicio papa) {
 		
 		setLayout(new BorderLayout());
-		setPreferredSize(new Dimension(120,120));
+		setPreferredSize(new Dimension(300,300));
 		
 		JPanel formPanel = new JPanel();
 		formPanel.setLayout(new BoxLayout(formPanel, BoxLayout.Y_AXIS));  // Este es un Layout que no vimos en clase, sin embargo existe y averiguamos como usarlo

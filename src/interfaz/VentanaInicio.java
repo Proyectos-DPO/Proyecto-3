@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 
 public class VentanaInicio extends JFrame {
 
-	private JPanel cardPanel;
-	private CardLayout cardLO;
+	private CardPanel cardPanel;
+
 	
 	public VentanaInicio() {
 		
@@ -22,22 +22,22 @@ public class VentanaInicio extends JFrame {
         setDefaultCloseOperation( EXIT_ON_CLOSE );
         setLocationRelativeTo( null );
         setResizable(false);
-   
-        cardLO = new CardLayout();
-		cardPanel = new JPanel( cardLO);
+        
+		cardPanel = new CardPanel();
 		
 		cardPanel.add(new LoginView(this), "login");
-	    pack();
 		cardPanel.add(new ClasePrueba(this), "prueba");
 		
 		add(cardPanel);
 		showPanel("login");
+		pack();
 		setVisible( true );
 	}
 	
 	public void showPanel(String nombre) {
-		cardLO.show(cardPanel, nombre);
+		cardPanel.showCard(nombre);
 		pack();
+		setLocationRelativeTo(null);
 	}
 
 	public static void main( String[] args ) {
