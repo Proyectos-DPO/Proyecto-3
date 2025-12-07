@@ -1,0 +1,7 @@
+[{"id": "D",
+"precioVenta": 600,
+"pagoCargo": 200,
+"isContained": false,
+"isCompleto": true,
+"isInVariosEventos": false,
+"tiquetes": ["D1", "D2", "D3"]}]

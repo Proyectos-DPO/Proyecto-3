@@ -1,0 +1,85 @@
+[{"nombre": "Rock al Parque",
+"fecha": [2025,12,25],
+"hora": [8, 0],
+"type": "Religioso",
+"cantidadBoletas": 3,
+"venue": "Simon Bolivar",
+"organizador": "Martin",
+"descuento": {},
+"estados": {
+	"ganancias": 500,
+	"boletasTotales": 3,
+	"boletasVendidas": 2,
+},
+"localidades": [{
+	"nombre": "La localidad de Kennedy",
+	"isMultiple": false,
+	"isNumerado": false,
+	"counter": -1,
+	"precioBoletas": 500,
+	"tiquetes": ["A","B","C"],
+	"estados": {
+		"ganancias": 500,
+		"boletasTotales": 3,
+		"boletasVendidas": 2,
+	}
+}]},
+
+{"nombre": "Bogota Gospel",
+"fecha": [2025,12,1],
+"hora": [13, 0],
+"type": "Religioso",
+"cantidadBoletas": 3,
+"venue": "Movistar Arena",
+"organizador": "Martin",
+"descuento": {"fechaInicio": [2025, 1, 1],
+"fechaFinal": [2026, 1, 1],
+"descuentoPorcentaje": 0.2},
+"estados": {
+	"ganancias": 600,
+	"boletasTotales": 3,
+	"boletasVendidas": 3,
+},
+"localidades": [{
+	"nombre": "La localidad de los locos",
+	"isMultiple": true,
+	"isNumerado": false,
+	"counter": -1,
+	"precioBoletas": 600,
+	"tiquetes": ["D"],
+	"estados": {
+		"ganancias": 600,
+		"boletasTotales": 3,
+		"boletasVendidas": 3,
+	}
+}]},
+
+{"nombre": "Piriparapu",
+"fecha": [2025,10,11],
+"hora": [9, 30],
+"type": "Deportivo",
+"cantidadBoletas": 2,
+"venue": "Movistar Arena",
+"organizador": "Martin",
+"descuento": {},
+"estados": {
+	"ganancias": 5,
+	"boletasTotales": 2,
+	"boletasVendidas": 2,
+},
+"localidades": [{
+	"nombre": "Banco",
+	"isMultiple": false,
+	"isNumerado": true,
+	"counter": 2,
+	"precioBoletas": 600,
+	"tiquetes": ["E", "F"],
+	"estados": {
+		"ganancias": 5,
+		"boletasTotales": 2,
+		"boletasVendidas": 2,
+	}
+}]},
+
+
+]

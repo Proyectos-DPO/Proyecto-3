@@ -1,0 +1,5 @@
+{"cuotaEmision": 50,
+"generales": 100,
+"porFecha": [[[2025,12,25], 100], [[2025,10,11], 0], [[2025, 12, 1], 50]],
+"porEvento": [["Rock al Parque", 100], ["Bogota Gospel", 50], ["Banco", 0]],
+"porOrganizador": [["Martin", 150]]}
