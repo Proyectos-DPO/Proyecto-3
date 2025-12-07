@@ -16,6 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import data.Autenticador;
+
 public class LoginView extends JPanel implements ActionListener{
 	
 	private static final String LOGIN = "login";
@@ -76,8 +78,15 @@ public class LoginView extends JPanel implements ActionListener{
 		String comando = e.getActionCommand( );
         if( comando.equals( LOGIN ) )
         {
-        	papa.showPanel("prueba");
+        	try {
+				papa.setSesion(Autenticador.iniciarSesion(papa.getDatos(), txtUsuario.getText(), txtContra.getText()));
+				papa.showPanel("prueba");
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
         }
+        
 	}
 	
 }

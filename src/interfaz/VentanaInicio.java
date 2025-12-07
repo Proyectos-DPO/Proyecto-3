@@ -11,12 +11,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import data.Datos;
+import persistencia.Persistencia;
+import sesion.Sesion;
+
 public class VentanaInicio extends JFrame {
 
 	private CardPanel cardPanel;
+	private Datos datos;
+	private Sesion sesion;
 
 	
 	public VentanaInicio() {
+		
+		try {
+			datos = Persistencia.cargarDatos();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		setTitle( "BoletaMaster" );
         setDefaultCloseOperation( EXIT_ON_CLOSE );
@@ -40,8 +53,25 @@ public class VentanaInicio extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
+	public Datos getDatos() {
+		return datos;
+	}
+
+	public void setDatos(Datos datos) {
+		this.datos = datos;
+	}
+
+	public Sesion getSesion() {
+		return sesion;
+	}
+
+	public void setSesion(Sesion sesion) {
+		this.sesion = sesion;
+	}
+	
 	public static void main( String[] args ) {
 		new VentanaInicio();
 	}
+	
 }
 
