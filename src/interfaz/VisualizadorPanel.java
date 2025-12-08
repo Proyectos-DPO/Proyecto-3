@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import interfaz.Crear.CrearContraoferta;
 import interfaz.Crear.CrearOferta;
 import interfaz.Crear.CrearPeticion;
+import interfaz.Crear.CrearVenues;
 import interfaz.Crear.FijarCuotasPrompt;
 import interfaz.Crear.TransferirPrompt;
 import interfaz.adminStuff.AdminHomePanel; // o el paquete donde esté tu panel
@@ -25,7 +26,7 @@ public class VisualizadorPanel extends JFrame {
         // JPanel panel = new AdminHomePanel();
 
         // Si tu panel recibe un "padre" (recomendado):
-        JPanel panel = new CrearPeticion();
+        JPanel panel = new CrearVenues();
 
         // 👆👆👆 CAMBIA AdminHomePanel por la clase que quieras probar 👆👆👆
 
