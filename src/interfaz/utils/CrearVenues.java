@@ -16,6 +16,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import interfaz.VentanaInicio;
+
 import javax.swing.JScrollPane;
 
 public class CrearVenues extends JPanel implements ActionListener{
@@ -31,9 +34,11 @@ public class CrearVenues extends JPanel implements ActionListener{
     private JLabel lblTitulo;
     private JPanel card;
     private JButton btnCrear;
+    private VentanaInicio papa;
 
-    public CrearVenues() {
-
+    public CrearVenues(VentanaInicio papa) {
+    	
+    	this.papa = papa;
         setLayout(new BorderLayout());
         setBackground(new Color(243,243,243));
 
@@ -139,6 +144,7 @@ public class CrearVenues extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		String comando = e.getActionCommand();
 		if (comando.equals(SEND)) {
+			
 			
 		}
 	}
