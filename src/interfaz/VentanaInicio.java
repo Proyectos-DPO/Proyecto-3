@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import data.Datos;
 import persistencia.Persistencia;
@@ -75,10 +76,17 @@ public class VentanaInicio extends JFrame {
 	}
 	
 	public static void main( String[] args ) {
+		
+		try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (Exception e) {
+            // Si Nimbus no está disponible, el sistema usará el L&F por defecto.
+            System.err.println("No se pudo establecer Nimbus Look and Feel: " + e.getMessage());
+        }
+		
 		new VentanaInicio();
 	}
 	
 	
 	
 }
-
