@@ -1,13 +1,14 @@
 package peticiones;
 import eventos.Venue;
+import usuarios.Cliente;
 
 
 public class PeticionNuevoVenue extends Peticion{
 
 	private Venue venueCandidato;
 
-	public PeticionNuevoVenue(String id, Venue venueCandidato) {
-		super(id);
+	public PeticionNuevoVenue(String id, Cliente cliente, Venue venueCandidato) {
+		super(id, cliente);
 		this.venueCandidato = venueCandidato;
 	}
 	
@@ -19,4 +20,10 @@ public class PeticionNuevoVenue extends Peticion{
 	public Venue getVenueCandidato() {
 		return venueCandidato;
 	}
+
+	@Override
+	public String getIdAsociado() {
+		return venueCandidato.getNombre();
+	}
+	
 }

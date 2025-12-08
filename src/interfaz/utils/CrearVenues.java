@@ -1,4 +1,4 @@
- package interfaz.Crear;
+package interfaz.utils;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -18,7 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 
-public class CrearVenues extends JDialog implements ActionListener{
+public class CrearVenues extends JPanel implements ActionListener{
 
 	private static final String SEND = "Send";
     private static final String FONT = "Trebuchet MS";
@@ -85,9 +85,11 @@ public class CrearVenues extends JDialog implements ActionListener{
         btnCrear.addActionListener(this);
         btnCrear.setActionCommand(SEND);
         card.add(btnCrear);
-
+        
+        setSize(new Dimension(360, 700));
+        
         btnCrear.setMaximumSize(new Dimension(Integer.MAX_VALUE, btnCrear.getPreferredSize().height));
-
+        
         add(card, BorderLayout.NORTH);
     }
 
