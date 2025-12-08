@@ -277,10 +277,10 @@ public class Persistencia {
 			Peticion peticionita = null;
 			switch(p.getString("type")){
 			case "Cancel":
-				peticionita = new PeticionCancelarEvento(p.getString("id"), datitosUwU.getEvento(p.getString("idAsociado")) );
+				peticionita = new PeticionCancelarEvento(p.getString("id"), (Cliente) datitosUwU.getUsuario(p.getString("id").split("-")[0]),datitosUwU.getEvento(p.getString("idAsociado")) );
 				break;
 			case "Venue":
-				peticionita = new PeticionNuevoVenue(p.getString("id"), datitosUwU.getVenue(p.getString("idAsociado")) );
+				peticionita = new PeticionNuevoVenue(p.getString("id"), (Cliente) datitosUwU.getUsuario(p.getString("id").split("-")[0]),datitosUwU.getVenue(p.getString("idAsociado")) );
 				break;
 			case "Reembolso":
 				Tiquete tiquete = null;
@@ -289,7 +289,7 @@ public class Persistencia {
 				} else {
 					tiquete = datitosUwU.getTiqueteMultiple(p.getString("idAsociado"));
 				}
-				peticionita = new PeticionRembolsoTiquete(p.getString("id"), tiquete );
+				peticionita = new PeticionRembolsoTiquete(p.getString("id"), (Cliente) datitosUwU.getUsuario(p.getString("id").split("-")[0]),tiquete );
 				break;
 			}
 			mapaPeticiones.put(p.getString("id"), peticionita);
