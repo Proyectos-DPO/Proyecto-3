@@ -39,7 +39,6 @@ public class VentanaInicio extends JFrame {
 		cardPanel = new CardPanel();
 		
 		cardPanel.add(new LoginView(this), "login");
-		cardPanel.add(new ClasePrueba(this), "prueba");
 		
 		add(cardPanel);
 		showPanel("login");
@@ -51,6 +50,12 @@ public class VentanaInicio extends JFrame {
 		cardPanel.showCard(nombre);
 		pack();
 		setLocationRelativeTo(null);
+	}
+
+	
+	
+	public CardPanel getCardPanel() {
+		return cardPanel;
 	}
 
 	public Datos getDatos() {
@@ -72,6 +77,8 @@ public class VentanaInicio extends JFrame {
 	public static void main( String[] args ) {
 		new VentanaInicio();
 	}
+	
+	
 	
 }
 

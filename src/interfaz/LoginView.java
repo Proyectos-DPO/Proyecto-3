@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import data.Autenticador;
+import interfaz.adminStuff.AdminHomePanel;
+import sesion.SesionAdmin;
 
 public class LoginView extends JPanel implements ActionListener{
 	
@@ -80,7 +82,10 @@ public class LoginView extends JPanel implements ActionListener{
         {
         	try {
 				papa.setSesion(Autenticador.iniciarSesion(papa.getDatos(), txtUsuario.getText(), txtContra.getText()));
-				papa.showPanel("prueba");
+				if (papa.getSesion() instanceof SesionAdmin) {
+				papa.getCardPanel().add(new AdminHomePanel(papa), "adminHome");
+				papa.showPanel("adminHome");
+				}
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

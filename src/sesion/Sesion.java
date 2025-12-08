@@ -7,5 +7,11 @@ public abstract class Sesion {
 	public Sesion(String login) {
 		this.login = login;
 	}
+
+	public String getLogin() {
+		return login;
+	}
+	
+	
 	
 }
