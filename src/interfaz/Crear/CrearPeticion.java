@@ -98,7 +98,7 @@ public class CrearPeticion extends JPanel implements ActionListener {
      
         
         // no visible
-        panelVenue = new CrearVenues(papa);
+        panelVenue = new CrearVenues(papa, this);
         panelVenue.hideTitle();
         panelVenue.hideButton();
         panelVenue.setAlignmentX(LEFT_ALIGNMENT);

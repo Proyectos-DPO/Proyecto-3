@@ -96,7 +96,7 @@ public class BarraAdmin extends JPanel implements ActionListener {
 		case CREAR_VENUE:
 			JDialog lol = new JDialog();
 			lol.setLayout(new BorderLayout());
-			lol.add(new CrearVenues(), BorderLayout.CENTER);
+			lol.add(new CrearVenues(papa, lol), BorderLayout.CENTER);
 			lol.pack();
 			lol.setVisible(true);
 			break;
@@ -109,6 +109,7 @@ public class BarraAdmin extends JPanel implements ActionListener {
 			papa.showPanel("adminPeticiones");
 			break;
 		case CUOTAS:
+			new AdminDialogFijarCuotas(papa);
 			
 			break;
 		
