@@ -1,5 +1,6 @@
 package interfaz.adminStuff;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -9,10 +10,12 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import interfaz.VentanaInicio;
+import interfaz.utils.CrearVenues;
 
 public class BarraAdmin extends JPanel implements ActionListener {
 	
@@ -91,6 +94,11 @@ public class BarraAdmin extends JPanel implements ActionListener {
 			papa.showPanel("adminHome");
 			break;
 		case CREAR_VENUE:
+			JDialog lol = new JDialog();
+			lol.setLayout(new BorderLayout());
+			lol.add(new CrearVenues(), BorderLayout.CENTER);
+			lol.pack();
+			lol.setVisible(true);
 			break;
 		case MARKETPLACE:
 			break;
@@ -101,6 +109,7 @@ public class BarraAdmin extends JPanel implements ActionListener {
 			papa.showPanel("adminPeticiones");
 			break;
 		case CUOTAS:
+			
 			break;
 		
 		case LOGOUT:
