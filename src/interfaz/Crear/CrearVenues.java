@@ -11,13 +11,14 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 
-public class CrearVenues extends JPanel implements ActionListener{
+public class CrearVenues extends JDialog implements ActionListener{
 
 	private static final String SEND = "Send";
     private static final String FONT = "Trebuchet MS";
