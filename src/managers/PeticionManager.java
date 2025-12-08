@@ -15,13 +15,11 @@ import usuarios.Notificacion;
 
 public class PeticionManager {
 	
-	public static String mostrarPeticiones(Datos datos) {
-		String printMsg = "";
+	public static ArrayList<Peticion> mostrarPeticiones(Datos datos) {
+		
 		ArrayList<Peticion> peticiones = datos.getPeticionesAsList();
-		for (Peticion peticion : peticiones) {
-			///// INCOMPLETOOOOO AUN NO SE SI IMPLEMENTAR ESTO ASI
-		}
-		return printMsg;
+		
+		return peticiones;
 	}
 	
 	public static void crearPeticionReembolso(String login, Datos datos, Tiquete tiqueteAReembolsar) {

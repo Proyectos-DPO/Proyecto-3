@@ -11,4 +11,11 @@
 "capacidad": 200,
 "restricciones": "Llamen a la policía",
 "disponibilidad": [[2025, 10, 11], [2025, 12, 1]],
-"aprobado": true},]
+"aprobado": true},
+{"nombre": "La Casa de Sara",
+"latitud": 4.7233552,
+"longitud": -74.1341927,
+"capacidad": 20,
+"restricciones": "No se aceptan costeños (a excepción de Isaac Papasote Hermoso); nada de cosas mundanas",
+"disponibilidad": [],
+"aprobado": false}]

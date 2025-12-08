@@ -1,11 +1,14 @@
 package sesion;
 
+import java.util.ArrayList;
+
 import data.Datos;
 import eventos.Evento;
 import managers.EventoManager;
 import managers.PeticionManager;
 import managers.TiqueteManager;
 import managers.VenueManager;
+import peticiones.Peticion;
 
 public class SesionAdmin extends Sesion {
 
@@ -13,8 +16,8 @@ public class SesionAdmin extends Sesion {
 		super(login);
 	}
 	
-	public void administrarPeticiones(Datos datos) {
-		PeticionManager.mostrarPeticiones(datos);
+	public ArrayList<Peticion> administrarPeticiones(Datos datos) {
+		return PeticionManager.mostrarPeticiones(datos);
 	}
 	
 	public void cancelarEvento(Datos datos, Evento eventoACancelar) {
