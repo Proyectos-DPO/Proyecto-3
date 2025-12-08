@@ -63,8 +63,7 @@ public class BarraCliente extends JPanel {
         });
         
         // 5. Log Out (Visualmente distinto o al final)
-        JButton btnLogout = crearNavButton("Log Out");
-        btnLogout.setBackground(Color.GRAY); // Color diferente para distinguir la acción de salida
+        JButton btnLogout = crearNavButton("Log Out"); // Color diferente para distinguir la acción de salida
         btnLogout.addActionListener(e -> {
             // Cerrar sesión
             ventanaInicio.setSesion(null);
