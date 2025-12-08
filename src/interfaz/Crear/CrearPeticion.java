@@ -18,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import interfaz.utils.CrearVenues;
+
 public class CrearPeticion extends JPanel implements ActionListener {
 
 	private static final String SEND = "Send";

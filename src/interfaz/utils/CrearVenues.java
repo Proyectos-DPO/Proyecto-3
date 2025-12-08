@@ -1,4 +1,4 @@
- package interfaz.Crear;
+package interfaz.utils;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -84,9 +85,11 @@ public class CrearVenues extends JPanel implements ActionListener{
         btnCrear.addActionListener(this);
         btnCrear.setActionCommand(SEND);
         card.add(btnCrear);
-
+        
+        setSize(new Dimension(360, 700));
+        
         btnCrear.setMaximumSize(new Dimension(Integer.MAX_VALUE, btnCrear.getPreferredSize().height));
-
+        
         add(card, BorderLayout.NORTH);
     }
 
