@@ -1,13 +1,14 @@
 package peticiones;
 import eventos.Evento;
+import usuarios.Cliente;
 
 
 public class PeticionCancelarEvento extends Peticion{
 
 	private Evento eventoACancelar;
 
-	public PeticionCancelarEvento(String id, Evento eventoACancelar) {
-		super(id);
+	public PeticionCancelarEvento(String id, Cliente cliente, Evento eventoACancelar) {
+		super(id, cliente);
 		this.eventoACancelar = eventoACancelar;
 	}
 	
@@ -19,4 +20,11 @@ public class PeticionCancelarEvento extends Peticion{
 	public Evento getEventoACancelar() {
 		return eventoACancelar;
 	}
+
+	@Override
+	public String getIdAsociado() {
+		return eventoACancelar.getNombre();
+	}
+	
+	
 }

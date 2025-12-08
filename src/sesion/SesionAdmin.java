@@ -33,6 +33,10 @@ public class SesionAdmin extends Sesion {
 		}
 	}
 	
+	public void juzgarPeticion(String id, Datos datos, boolean decision) {
+		PeticionManager.ejecutarDecision(id, datos, decision);
+	}
+	
 	public void fijarPorcentajeServicio(double nuevoPorcentaje, String tipo) {
 		EventoManager.fijarPorcentajeServicio(nuevoPorcentaje, tipo);
 	}

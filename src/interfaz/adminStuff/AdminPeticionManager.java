@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -22,9 +24,11 @@ import interfaz.VentanaInicio;
 import peticiones.Peticion;
 import sesion.SesionAdmin;
 
-public class AdminPeticionManager extends JPanel {
+public class AdminPeticionManager extends JPanel implements ActionListener {
 
     private final VentanaInicio papa;
+    private static final String ACEPTAR = "Pepito dice que sí";
+    private static final String CANCELAR = "Pepito dice que NOOOOOOOOOOOOOOOOOOOO";
 
     public AdminPeticionManager(VentanaInicio papa) {
         this.papa = papa;
@@ -55,7 +59,7 @@ public class AdminPeticionManager extends JPanel {
         
         for (Peticion pet: peticionesUgU) {
         	
-        	listaPeticiones.add(createPeticionCard(pet.getTipoPeticion()+": "+pet.getId()));
+        	listaPeticiones.add(createPeticionCard(pet.getTipoPeticion()+": "+pet.getIdAsociado(), pet.getId()));
         	listaPeticiones.add(Box.createVerticalStrut(10));
         }
         
@@ -70,7 +74,7 @@ public class AdminPeticionManager extends JPanel {
         add(centerWrapper, BorderLayout.CENTER);
     }
 
-    private JPanel createPeticionCard(String textoPeticion) {
+    private JPanel createPeticionCard(String textoPeticion, String idPeticion) {
         JPanel card = new JPanel(new BorderLayout());
         card.setBackground(Color.WHITE);
         card.setBorder(new CompoundBorder(
@@ -86,7 +90,12 @@ public class AdminPeticionManager extends JPanel {
         botonesPanel.setOpaque(false);
 
         JButton btnAceptar = new JButton("Aceptar");
+        btnAceptar.setActionCommand(ACEPTAR+"~"+idPeticion);
+        btnAceptar.addActionListener(this);
         JButton btnCancelar = new JButton("Cancelar");
+        btnCancelar.setActionCommand(CANCELAR+"~"+idPeticion);
+        btnCancelar.addActionListener(this);
+        
 
         botonesPanel.add(btnAceptar);
         botonesPanel.add(btnCancelar);
@@ -95,4 +104,14 @@ public class AdminPeticionManager extends JPanel {
 
         return card;
     }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String[] info = e.getActionCommand().split("~");
+		SesionAdmin sesion = (SesionAdmin) papa.getSesion();
+		sesion.juzgarPeticion(info[1], papa.getDatos(), info[0].equals(ACEPTAR));
+		papa.getCardPanel().add(new AdminPeticionManager(papa), "adminPeticiones");
+		papa.showPanel("adminPeticiones");
+		
+	}
 }
