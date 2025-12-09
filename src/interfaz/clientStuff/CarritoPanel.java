@@ -9,10 +9,8 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
 
 import interfaz.VentanaInicio;
 
@@ -27,18 +25,9 @@ public class CarritoPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // ----------- BARRA SUPERIOR -----------
-        JPanel topBar = new JPanel(new BorderLayout());
-        topBar.setBackground(Color.WHITE);
-        topBar.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(230, 230, 230)));
-
-        JLabel lblTitulo = new JLabel("  Carrito", SwingConstants.LEFT);
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 24));
-        lblTitulo.setForeground(new Color(40, 40, 40));
-        lblTitulo.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 0));
-        topBar.add(lblTitulo, BorderLayout.WEST);
-
-        add(topBar, BorderLayout.NORTH);
+        // ----------- BARRA SUPERIOR (nueva) -----------
+        BarraCarrito barra = new BarraCarrito(ventanaInicio);
+        add(barra, BorderLayout.NORTH);
 
         // ----------- LISTA DE ITEMS -----------
         listPanel = new JPanel();
@@ -47,7 +36,6 @@ public class CarritoPanel extends JPanel {
         listPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 30, 30));
 
         // Por ahora, datos "dummy" como en el mockup.
-        // Luego puedes reemplazar este método por uno que lea de CarritoCompra.
         cargarItemsDummy();
 
         JScrollPane scroll = new JScrollPane(listPanel);
