@@ -12,6 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JDialog;
+import java.awt.BorderLayout;
+import interfaz.Crear.CrearEvento;
 
 import interfaz.VentanaInicio;
 
@@ -49,6 +52,17 @@ public class OrganizadorHomePanel extends JPanel {
         
         
         JButton btnCrearEvento = new JButton("Crear evento");
+        btnCrearEvento.addActionListener(e -> {
+            javax.swing.JDialog dialog = new javax.swing.JDialog();
+            dialog.setLayout(new java.awt.BorderLayout());
+            dialog.add(new CrearEvento(ventanaInicio, dialog), java.awt.BorderLayout.CENTER);
+            dialog.pack();
+            dialog.setLocationRelativeTo(ventanaInicio);
+            dialog.setModal(true);
+            dialog.setVisible(true);
+        });
+        
+        
         btnCrearEvento.setFont(new Font("Arial", Font.BOLD, 13));
         btnCrearEvento.setFocusPainted(false);
         btnCrearEvento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

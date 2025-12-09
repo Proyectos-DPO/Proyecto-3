@@ -14,17 +14,9 @@ public class VisualizadorPanel extends JFrame {
 
     public VisualizadorPanel() {
 
-<<<<<<< HEAD
-        JPanel panel = new CrearOferta();
-=======
-        // 👇👇👇 CAMBIA SOLO ESTA LÍNEA SEGÚN EL PANEL QUE QUIERAS PROBAR 👇👇👇
 
-        // Si tu panel NO necesita padre:
-        // JPanel panel = new AdminHomePanel();
-
-        // Si tu panel recibe un "padre" (recomendado):
+        
         JPanel panel = new CrearDescuento();
->>>>>>> branch 'master' of git@github.com:Proyectos-DPO/Proyecto-3.git
 
         setTitle("Preview: " + panel.getClass().getSimpleName());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

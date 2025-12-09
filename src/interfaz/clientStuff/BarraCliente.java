@@ -3,8 +3,6 @@ package interfaz.clientStuff;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -22,54 +20,53 @@ public class BarraCliente extends JPanel {
     public BarraCliente(VentanaInicio ventanaInicio) {
         this.ventanaInicio = ventanaInicio;
 
-        
         setLayout(new FlowLayout(FlowLayout.LEFT, 15, 10));
         setBackground(Color.WHITE); 
         setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, CORPORATE_PURPLE));
 
         
         JButton btnTienda = crearNavButton("Market Place");
-        btnTienda.addActionListener(e -> {
-        	
-            ventanaInicio.showPanel("clientHome");
-        });
+        btnTienda.addActionListener(e -> ventanaInicio.showPanel("clientHome"));
+
         
         
         JButton btnCuenta = crearNavButton("Cuenta");
         btnCuenta.addActionListener(e -> {
-        	
-            System.out.println("Navegar a Perfil");
+            if (!ventanaInicio.getCardPanel().isCardPresent("clientAccount")) {
+                ventanaInicio.getCardPanel().add(
+                    new CuentaClientePanel(ventanaInicio),
+                    "clientAccount"
+                );
+            }
+            ventanaInicio.showPanel("clientAccount");
         });
-        
+
         
         JButton btnPeticion = crearNavButton("Crear Petición");
         btnPeticion.addActionListener(e -> {
-        	
             System.out.println("Abrir Crear Petición");
         });
 
         
-        JButton btnCarrito = crearNavButton("Carrito");
-        btnCarrito.addActionListener(e -> {
-        	
-            System.out.println("Ver Carrito");
-        });
         
+        
+        JButton btnCarrito = crearNavButton("Carrito");
+        btnCarrito.addActionListener(e -> ventanaInicio.mostrarCarrito());
+
         
         JButton btnLogout = crearNavButton("Log Out");
         btnLogout.addActionListener(e -> {
-        	
             ventanaInicio.setSesion(null);
             ventanaInicio.showPanel("login");
         });
 
-        
         add(btnTienda);
         add(btnCuenta);
         add(btnPeticion);
         add(btnCarrito);
+
         
-        btnCarrito.addActionListener(e -> ventanaInicio.mostrarCarrito());
+        
         
         
         JPanel spacer = new JPanel();
@@ -79,8 +76,12 @@ public class BarraCliente extends JPanel {
         
         add(btnLogout);
     }
-
     
+    
+    
+    
+    
+
     private JButton crearNavButton(String text) {
         JButton button = new JButton(text);
         button.setFont(BUTTON_FONT);
