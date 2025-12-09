@@ -8,7 +8,7 @@ import interfaz.Crear.CrearOferta;
 import interfaz.Crear.CrearPeticion;
 import interfaz.Crear.TransferirPrompt;
 import interfaz.adminStuff.AdminHomePanel; // o el paquete donde esté tu panel
-import interfaz.adminStuff.FijarCuotasPrompt;
+//import interfaz.adminStuff.FijarCuotasPrompt;
 import interfaz.utils.CrearVenues;
 
 /**
