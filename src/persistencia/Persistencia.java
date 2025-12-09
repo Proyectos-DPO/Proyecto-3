@@ -81,7 +81,12 @@ public class Persistencia {
 		
 		for(Object o: tiquetesIData) {
 			JSONObject p = (JSONObject) o;
-			TiqueteIndividual tiqueteI = new TiqueteIndividual(p.getString("id"), p.getDouble("precioVenta"), p.getDouble("pagoCargo"), p.getBoolean("isContained"), p.getInt("idAsiento"));
+			JSONArray fechaExpedicion = p.getJSONArray("fechaExpedicion");
+			LocalDate fechaTrue = null;
+			if (fechaExpedicion.length() > 0) {
+				fechaTrue = LocalDate.of(fechaExpedicion.getInt(0),fechaExpedicion.getInt(1),fechaExpedicion.getInt(2));
+			}
+			TiqueteIndividual tiqueteI = new TiqueteIndividual(p.getString("id"), p.getDouble("precioVenta"), p.getDouble("pagoCargo"), p.getBoolean("isContained"), p.getInt("idAsiento"), p.getBoolean("impreso"), fechaTrue);
 			mapaTiquetes.put(tiqueteI.getId(), tiqueteI);
 		}
 		
