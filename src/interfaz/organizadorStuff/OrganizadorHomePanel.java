@@ -17,7 +17,6 @@ import interfaz.VentanaInicio;
 
 /**
  * Panel principal de la vista Organizador.
- * Muestra barra superior + sección "Mis eventos" con tarjetas.
  */
 public class OrganizadorHomePanel extends JPanel {
 
@@ -30,16 +29,13 @@ public class OrganizadorHomePanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // ----- Barra superior (similar a la imagen) -----
         BarraOrganizador barra = new BarraOrganizador(ventanaInicio);
         add(barra, BorderLayout.NORTH);
 
-        // ----- Panel central -----
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBackground(Color.WHITE);
         centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 30, 30));
 
-        // Encabezado "Mis eventos" + botón "Crear evento"
         JPanel headerPanel = new JPanel();
         headerPanel.setOpaque(false);
         headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.X_AXIS));
@@ -62,13 +58,11 @@ public class OrganizadorHomePanel extends JPanel {
 
         centerPanel.add(headerPanel, BorderLayout.NORTH);
 
-        // Lista de eventos (scrollable)
         listPanel = new JPanel();
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
         listPanel.setBackground(Color.WHITE);
         listPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
 
-        // Por ahora: 3 tarjetas "mock" como en tu imagen
         cargarEventosDummy();
 
         JScrollPane scroll = new JScrollPane(listPanel);
@@ -79,13 +73,12 @@ public class OrganizadorHomePanel extends JPanel {
         centerPanel.add(scroll, BorderLayout.CENTER);
 
         add(centerPanel, BorderLayout.CENTER);
-
-        // TODO: conectar btnCrearEvento con CrearEvento / CrearLocalidad más adelante
     }
 
     private void cargarEventosDummy() {
         for (int i = 1; i <= 3; i++) {
             OrganizadorEventCardPanel card = new OrganizadorEventCardPanel(
+                ventanaInicio,
                 "Evento de este Organizador  " + i,
                 "Ganancias Generales: $5000"
             );

@@ -11,22 +11,16 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import interfaz.VentanaInicio;
-
 /**
- * Tarjeta de evento en el home del Organizador.
+ * Tarjeta para una localidad en el panel del organizador.
  */
-public class OrganizadorEventCardPanel extends JPanel {
+public class LocalidadOrganizadorCardPanel extends JPanel {
 
-    private String nombreEvento;
+    private String nombreLocalidad;
     private String gananciasTexto;
-    private VentanaInicio ventanaInicio;
 
-    public OrganizadorEventCardPanel(VentanaInicio ventanaInicio,
-                                     String nombreEvento,
-                                     String gananciasTexto) {
-        this.ventanaInicio = ventanaInicio;
-        this.nombreEvento = nombreEvento;
+    public LocalidadOrganizadorCardPanel(String nombreLocalidad, String gananciasTexto) {
+        this.nombreLocalidad = nombreLocalidad;
         this.gananciasTexto = gananciasTexto;
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -40,10 +34,10 @@ public class OrganizadorEventCardPanel extends JPanel {
         setPreferredSize(new Dimension(900, 110));
         setMaximumSize(new Dimension(900, 130));
 
-        JLabel lblTitulo = new JLabel(nombreEvento);
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
-        lblTitulo.setForeground(Color.DARK_GRAY);
-        add(lblTitulo);
+        JLabel lblNombre = new JLabel(nombreLocalidad);
+        lblNombre.setFont(new Font("Arial", Font.BOLD, 18));
+        lblNombre.setForeground(Color.DARK_GRAY);
+        add(lblNombre);
 
         add(Box.createRigidArea(new Dimension(0, 4)));
 
@@ -58,20 +52,17 @@ public class OrganizadorEventCardPanel extends JPanel {
         botonesPanel.setOpaque(false);
         botonesPanel.setLayout(new BoxLayout(botonesPanel, BoxLayout.X_AXIS));
 
-        JButton btnLocalidades = crearBotonPlano("Administrar Localidades");
-        JButton btnDescuento   = crearBotonPlano("Crear Descuento");
+        JButton btnEditar = crearBotonPlano("Editar Localidad");
+        JButton btnVerTiquetes = crearBotonPlano("Ver Tiquetes");
 
-        // 👉 Aquí conectamos con el nuevo panel
-        btnLocalidades.addActionListener(e -> ventanaInicio.mostrarLocalidadesOrganizador());
-
-        botonesPanel.add(btnLocalidades);
+        botonesPanel.add(btnEditar);
         botonesPanel.add(Box.createRigidArea(new Dimension(10, 0)));
-        botonesPanel.add(btnDescuento);
+        botonesPanel.add(btnVerTiquetes);
 
         add(Box.createRigidArea(new Dimension(0, 12)));
         add(botonesPanel);
 
-        // TODO: conectar btnDescuento con CrearDescuento cuando quieras
+        // TODO: listeners reales para editar / ver tiquetes
     }
 
     private JButton crearBotonPlano(String texto) {
