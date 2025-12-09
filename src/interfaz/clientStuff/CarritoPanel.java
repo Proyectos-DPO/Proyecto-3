@@ -25,17 +25,17 @@ public class CarritoPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // ----------- BARRA SUPERIOR (nueva) -----------
+        
         BarraCarrito barra = new BarraCarrito(ventanaInicio);
         add(barra, BorderLayout.NORTH);
 
-        // ----------- LISTA DE ITEMS -----------
+        
         listPanel = new JPanel();
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
         listPanel.setBackground(Color.WHITE);
         listPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 30, 30));
 
-        // Por ahora, datos "dummy" como en el mockup.
+        
         cargarItemsDummy();
 
         JScrollPane scroll = new JScrollPane(listPanel);
@@ -45,7 +45,7 @@ public class CarritoPanel extends JPanel {
 
         add(scroll, BorderLayout.CENTER);
 
-        // ----------- BOTONES DE PAGO -----------
+        
         JPanel bottomPanel = new JPanel();
         bottomPanel.setBackground(Color.WHITE);
         bottomPanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 30, 30));
@@ -65,12 +65,9 @@ public class CarritoPanel extends JPanel {
         add(bottomPanel, BorderLayout.SOUTH);
     }
 
-    /**
-     * Por ahora llenamos el carrito con tres items "mock" para replicar tu diseño.
-     * Más adelante puedes cambiar esto para que lea del CarritoCompra de la sesión.
-     */
+    
     private void cargarItemsDummy() {
-        // Tiquete individual
+    	
         ItemCarritoPanel item1 = new ItemCarritoPanel(
             "Tiquete Individual",
             "Id de Tiquete Individual",
@@ -80,7 +77,7 @@ public class CarritoPanel extends JPanel {
         listPanel.add(item1);
         listPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
-        // Paquete deluxe
+        
         ItemCarritoPanel item2 = new ItemCarritoPanel(
             "Paquete",
             "Id de paquete",
@@ -90,7 +87,7 @@ public class CarritoPanel extends JPanel {
         listPanel.add(item2);
         listPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
-        // Tiquete múltiple
+        
         ItemCarritoPanel item3 = new ItemCarritoPanel(
             "Tickete Multiple",
             "Id de Tiquete multiple",

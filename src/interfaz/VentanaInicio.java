@@ -42,7 +42,7 @@ public class VentanaInicio extends JFrame {
 
         cardPanel = new CardPanel();
 
-        // Panel inicial: login
+        
         cardPanel.add(new LoginView(this), "login");
 
         add(cardPanel);
@@ -71,10 +71,8 @@ public class VentanaInicio extends JFrame {
         showPanel("organizadorLocalidades");
     }
 
-    /**
-     * Muestra el panel de localidades para el evento dado,
-     * reutilizando el mismo CardPanel (igual que login / tienda).
-     */
+    
+    
     public void mostrarLocalidadesEvento(Evento evento) {
         LocalidadesEventoPanel panelLocalidades = new LocalidadesEventoPanel(this, evento);
         cardPanel.add(panelLocalidades, "localidadesEvento");

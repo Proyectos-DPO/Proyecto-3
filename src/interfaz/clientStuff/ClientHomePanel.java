@@ -17,10 +17,7 @@ import data.Datos;
 import eventos.Evento;
 import interfaz.VentanaInicio;
 
-/**
- * Panel principal de la vista de Cliente (La Tienda).
- * Muestra 3 columnas: Individuales, Multiples y Paquetes Deluxe.
- */
+
 public class ClientHomePanel extends JPanel {
 
     private VentanaInicio ventanaInicio;
@@ -34,17 +31,17 @@ public class ClientHomePanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // Barra (no se modifica)
+        
         BarraCliente barra = new BarraCliente(ventanaInicio);
         add(barra, BorderLayout.NORTH);
 
-        // Título general
+        
         JLabel lblTitulo = new JLabel("Tienda (Vista Cliente)");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 26));
         lblTitulo.setForeground(new Color(50, 50, 50));
         lblTitulo.setBorder(BorderFactory.createEmptyBorder(20, 30, 10, 30));
 
-        // Panel con las 3 columnas
+        
         JPanel marketplacePanel = new JPanel();
         marketplacePanel.setBackground(Color.WHITE);
         marketplacePanel.setBorder(BorderFactory.createEmptyBorder(10, 30, 30, 30));
@@ -58,10 +55,10 @@ public class ClientHomePanel extends JPanel {
         marketplacePanel.add(columnaMultiples);
         marketplacePanel.add(columnaPaquetes);
 
-        // Cargar los productos específicos
+        
         cargarProductosCliente();
 
-        // Scroll vertical
+        
         JScrollPane scrollPane = new JScrollPane(marketplacePanel);
         scrollPane.setBorder(null);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -90,10 +87,7 @@ public class ClientHomePanel extends JPanel {
         return col;
     }
 
-    /**
-     * Lógica para llenar las 3 columnas con los eventos deseados.
-     * Usa solo Datos.getEventosAsList() (no modifica el paquete data).
-     */
+    
     private void cargarProductosCliente() {
         Datos datos = ventanaInicio.getDatos();
         if (datos == null) return;
@@ -106,7 +100,7 @@ public class ClientHomePanel extends JPanel {
             return;
         }
 
-        // Nombres de los eventos tal como los usas en tus datos
+        
         final String EVENTO_ROCK   = "Rock al parque";
         final String EVENTO_GOSPEL = "Bogota Gospel";
         final String EVENTO_PIRI   = "Piriparapu";
@@ -115,10 +109,10 @@ public class ClientHomePanel extends JPanel {
         Evento eventoGospel = buscarEventoPorNombre(eventos, EVENTO_GOSPEL);
         Evento eventoPiri   = buscarEventoPorNombre(eventos, EVENTO_PIRI);
 
-        // --- Columna 1: 3 tiquetes individuales de Rock al Parque ---
+        
         if (eventoRock != null) {
             for (int i = 0; i < 3; i++) {
-                // 👇 Pasamos también la ventanaInicio
+            	
                 EventCardPanel card = new EventCardPanel(eventoRock, "Compra ya", ventanaInicio);
                 card.setAlignmentX(LEFT_ALIGNMENT);
                 columnaIndividuales.add(card);
@@ -130,7 +124,7 @@ public class ClientHomePanel extends JPanel {
             columnaIndividuales.add(lbl);
         }
 
-        // --- Columna 2: 1 tiquete múltiple de Bogota Gospel ---
+        
         if (eventoGospel != null) {
             EventCardPanel card = new EventCardPanel(eventoGospel, "Agregar a Carrito", ventanaInicio);
             card.setAlignmentX(LEFT_ALIGNMENT);
@@ -142,7 +136,7 @@ public class ClientHomePanel extends JPanel {
             columnaMultiples.add(lbl);
         }
 
-        // --- Columna 3: 1 paquete deluxe de Piriparapu ---
+        
         if (eventoPiri != null) {
             EventCardPanel card = new EventCardPanel(eventoPiri, "Agregar a Carrito", ventanaInicio);
             card.setAlignmentX(LEFT_ALIGNMENT);
@@ -155,9 +149,6 @@ public class ClientHomePanel extends JPanel {
         }
     }
 
-    /**
-     * Busca un evento por nombre (ignorando mayúsculas/minúsculas).
-     */
     private Evento buscarEventoPorNombre(ArrayList<Evento> eventos, String nombre) {
         for (Evento e : eventos) {
             if (e.getNombre() != null && e.getNombre().equalsIgnoreCase(nombre)) {

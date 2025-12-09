@@ -11,10 +11,6 @@ import javax.swing.JPanel;
 
 import interfaz.VentanaInicio;
 
-/**
- * Barra superior para el panel de Carrito.
- * Permite regresar a la tienda y hacer logout.
- */
 public class BarraCarrito extends JPanel {
 
     private VentanaInicio ventanaInicio;
@@ -29,18 +25,18 @@ public class BarraCarrito extends JPanel {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, CORPORATE_PURPLE));
 
-        // Etiqueta "Carrito" al inicio
+        
         JLabel lblTitulo = new JLabel("Carrito");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitulo.setForeground(new Color(40, 40, 40));
         add(lblTitulo);
 
-        // Botón: Regresar a Tienda
+        
         JButton btnRegresar = crearNavButton("Regresar a Tienda");
         btnRegresar.addActionListener(e -> ventanaInicio.showPanel("clientHome"));
         add(btnRegresar);
 
-        // Botón: Log Out
+        
         JButton btnLogout = crearNavButton("Log Out");
         btnLogout.addActionListener(e -> {
             ventanaInicio.setSesion(null);

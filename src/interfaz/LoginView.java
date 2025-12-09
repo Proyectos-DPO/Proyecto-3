@@ -80,7 +80,6 @@ public class LoginView extends JPanel implements ActionListener {
         String comando = e.getActionCommand();
         if (comando.equals(LOGIN)) {
             try {
-                // 1. Intentar iniciar sesión
                 Sesion sesion = Autenticador.iniciarSesion(
                         papa.getDatos(),
                         txtUsuario.getText(),
@@ -88,25 +87,23 @@ public class LoginView extends JPanel implements ActionListener {
                 );
                 papa.setSesion(sesion);
 
-                // 2. ADMIN
                 if (sesion instanceof SesionAdmin) {
                     papa.getCardPanel().add(new AdminHomePanel(papa), "adminHome");
                     papa.showPanel("adminHome");
                 }
-                // 3. ORGANIZADOR (hereda de SesionCliente, por eso este if debe ir ANTES que el de SesionCliente)
                 else if (sesion instanceof SesionOrganizador) {
-                    // Vista de organizador
+                	
                     OrganizadorHomePanel orgPanel = new OrganizadorHomePanel(papa);
                     papa.getCardPanel().add(orgPanel, "organizadorHome");
 
-                    // También registramos la tienda para este usuario
+                    
                     ClientHomePanel clientPanel = new ClientHomePanel(papa);
                     papa.getCardPanel().add(clientPanel, "clientHome");
 
-                    // Mostramos primero la vista de Organizador
+                    
                     papa.showPanel("organizadorHome");
                 }
-                // 4. CLIENTE "normal"
+                
                 else if (sesion instanceof SesionCliente) {
                     ClientHomePanel clientPanel = new ClientHomePanel(papa);
                     papa.getCardPanel().add(clientPanel, "clientHome");

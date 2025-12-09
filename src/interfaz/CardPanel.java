@@ -39,7 +39,6 @@ public class CardPanel extends JPanel {
 
     @Override
     public Dimension getPreferredSize() {
-        // Devolver el tamaño preferido de la carta visible
         for (Component c : getComponents()) {
             if (c.isVisible()) {
                 return c.getPreferredSize();
