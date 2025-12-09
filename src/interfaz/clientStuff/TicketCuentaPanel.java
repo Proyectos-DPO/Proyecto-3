@@ -21,12 +21,10 @@ public class TicketCuentaPanel extends JPanel {
     private final TiqueteIndividual tiquete;
     private final VentanaInicio ventanaInicio;
 
-    // Constructor solo para mock/dummy (como en tu CuentaClientePanel actual)
     public TicketCuentaPanel(String idTiquete, String asientoTexto) {
         this(idTiquete, asientoTexto, null, null);
     }
 
-    // Constructor completo con tiquete real y ventana
     public TicketCuentaPanel(String idTiquete,
                              String asientoTexto,
                              TiqueteIndividual tiquete,
@@ -43,21 +41,25 @@ public class TicketCuentaPanel extends JPanel {
         setAlignmentX(LEFT_ALIGNMENT);
         setMaximumSize(new Dimension(Integer.MAX_VALUE, 120));
 
-        // Título del ticket
+        
         JLabel lblTitulo = new JLabel("Ticket " + idTiquete);
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 16));
         lblTitulo.setForeground(Color.DARK_GRAY);
         add(lblTitulo);
         add(Box.createRigidArea(new Dimension(0, 4)));
 
-        // Asiento
+        
+        
         JLabel lblAsiento = new JLabel(asientoTexto);
         lblAsiento.setFont(new Font("Arial", Font.PLAIN, 13));
         lblAsiento.setForeground(new Color(110, 110, 110));
         add(lblAsiento);
         add(Box.createRigidArea(new Dimension(0, 10)));
 
-        // Panel de botones
+        
+        
+        
+        
         JPanel botonesPanel = new JPanel();
         botonesPanel.setOpaque(false);
         botonesPanel.setLayout(new BoxLayout(botonesPanel, BoxLayout.X_AXIS));

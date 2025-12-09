@@ -43,7 +43,6 @@ public class VisualizarQRPanel extends JPanel {
         construirContenido();
     }
 
-    // ---------- HEADER ----------
     private void construirHeader() {
         JPanel header = new JPanel();
         header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
@@ -65,8 +64,7 @@ public class VisualizarQRPanel extends JPanel {
         header.add(Box.createRigidArea(new Dimension(20, 0)));
         header.add(left);
         header.add(Box.createHorizontalGlue());
-
-        // Botones tipo chip
+        
         header.add(crearChip("Crear Peticion"));
         header.add(Box.createRigidArea(new Dimension(10, 0)));
         header.add(crearChip("Crear Peticion")); // segundo chip como en el mockup
@@ -95,14 +93,12 @@ public class VisualizarQRPanel extends JPanel {
         return btn;
     }
 
-    // ---------- CONTENIDO ----------
     private void construirContenido() {
         JPanel content = new JPanel();
         content.setBackground(Color.WHITE);
         content.setBorder(BorderFactory.createEmptyBorder(30, 40, 40, 40));
         content.setLayout(new BoxLayout(content, BoxLayout.X_AXIS));
 
-        // 1. Imagen QR (izquierda)
         JLabel qrLabel = new JLabel();
         try {
             BitMatrix matrix = TiqueteManager.generarImagenTiquete(
@@ -117,12 +113,10 @@ public class VisualizarQRPanel extends JPanel {
         qrLabel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 40));
         content.add(qrLabel);
 
-        // 2. Info del tiquete (derecha)
         JPanel infoPanel = new JPanel();
         infoPanel.setOpaque(false);
         infoPanel.setLayout(new BoxLayout(infoPanel, BoxLayout.Y_AXIS));
 
-        // Nombre localidad / evento
         String nombre = "Tiquete";
         try {
             if (tiquete.getLocalidadTiquete() != null) {
@@ -136,7 +130,6 @@ public class VisualizarQRPanel extends JPanel {
         infoPanel.add(lblNombre);
         infoPanel.add(Box.createRigidArea(new Dimension(0, 12)));
 
-        // Badge verde "Precio por Tiquete"
         JLabel lblBadge = new JLabel("Precio por Tiquete");
         lblBadge.setFont(new Font("Arial", Font.PLAIN, 12));
         lblBadge.setOpaque(true);
@@ -146,7 +139,6 @@ public class VisualizarQRPanel extends JPanel {
         infoPanel.add(lblBadge);
         infoPanel.add(Box.createRigidArea(new Dimension(0, 12)));
 
-        // Precio grande
         double precio = 0;
         try {
             precio = tiquete.getPrecioVenta();
@@ -158,7 +150,6 @@ public class VisualizarQRPanel extends JPanel {
         infoPanel.add(lblPrecio);
         infoPanel.add(Box.createRigidArea(new Dimension(0, 12)));
 
-        // Descripción placeholder
         JLabel lblDesc = new JLabel("Descripcion del Tiquete");
         lblDesc.setFont(new Font("Arial", Font.PLAIN, 13));
         lblDesc.setForeground(new Color(110, 110, 110));
