@@ -160,8 +160,8 @@ public class CrearPeticion extends JPanel implements ActionListener {
 		card.setSize(getPreferredSize());
 		card.revalidate();
 		card.repaint();
-		ventana.pack();
-		ventana.setLocationRelativeTo(null);
+		papa.pack();
+		papa.setLocationRelativeTo(null);
 	}
 	
 	@Override
