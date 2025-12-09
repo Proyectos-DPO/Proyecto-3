@@ -31,11 +31,8 @@ public class BarraOrganizador extends JPanel {
         add(btnPeticion);
         add(btnLogout);
 
-        // Navegación básica (ajústala a tu gusto):
-        // Market Place / Tienda → vista cliente
         btnMarket.addActionListener(e -> ventanaInicio.showPanel("clientHome"));
         btnTienda.addActionListener(e -> ventanaInicio.showPanel("clientHome"));
-        // Crear Petición / LogOut los dejamos para conectar más adelante
     }
 
     private JButton crearBotonChip(String texto) {
