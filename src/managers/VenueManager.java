@@ -26,7 +26,7 @@ public class VenueManager {
 	}
 	
 	public static void cambiarEstadoAprobado(Venue venue) {
-		venue.setAprobado(false);
+		venue.setAprobado(true);
 	}
 	
 	
