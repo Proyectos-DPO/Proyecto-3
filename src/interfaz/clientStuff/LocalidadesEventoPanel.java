@@ -60,7 +60,11 @@ public class LocalidadesEventoPanel extends JPanel {
         rightButtons.add(Box.createRigidArea(new Dimension(10, 0)));
 
         // Otros botones existentes si quieres mantenerlos
-        rightButtons.add(crearBotonChip("Carrito"));
+        JButton btnCarrito = crearBotonChip("Carrito");
+        btnCarrito.addActionListener(e -> ventanaInicio.mostrarCarrito());
+        rightButtons.add(btnCarrito);
+        rightButtons.add(Box.createRigidArea(new Dimension(10, 0)));
+        
         rightButtons.add(Box.createRigidArea(new Dimension(10, 0)));
         rightButtons.add(crearBotonChip("Log Out"));
 

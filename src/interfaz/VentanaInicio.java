@@ -17,6 +17,7 @@ import eventos.Evento;
 import interfaz.clientStuff.LocalidadesEventoPanel;
 import persistencia.Persistencia;
 import sesion.Sesion;
+import interfaz.clientStuff.CarritoPanel;
 
 public class VentanaInicio extends JFrame {
 
@@ -52,6 +53,12 @@ public class VentanaInicio extends JFrame {
         cardPanel.showCard(nombre);
         pack();
         setLocationRelativeTo(null);
+    }
+    
+    public void mostrarCarrito() {
+        CarritoPanel carritoPanel = new CarritoPanel(this);
+        cardPanel.add(carritoPanel, "carrito");
+        showPanel("carrito");
     }
 
     /**
