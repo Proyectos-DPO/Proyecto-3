@@ -128,6 +128,7 @@ public class CrearPeticion extends JPanel implements ActionListener {
 			comboObjeto.setVisible(false);
 			panelVenue.setVisible(true);
 			lblObjeto.setVisible(true);
+			
 			break;
 		case "Cancelar Evento":
 			comboObjeto.setModel(new DefaultComboBoxModel<>(listaEventos));
@@ -160,6 +161,7 @@ public class CrearPeticion extends JPanel implements ActionListener {
 		card.revalidate();
 		card.repaint();
 		ventana.pack();
+		ventana.setLocationRelativeTo(null);
 	}
 	
 	@Override

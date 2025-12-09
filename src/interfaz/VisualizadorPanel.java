@@ -26,7 +26,7 @@ public class VisualizadorPanel extends JFrame {
         // JPanel panel = new AdminHomePanel();
 
         // Si tu panel recibe un "padre" (recomendado):
-        JPanel panel = new CrearOferta();
+        JPanel panel = new CrearDescuento();
 
         // 👆👆👆 CAMBIA AdminHomePanel por la clase que quieras probar 👆👆👆
 
