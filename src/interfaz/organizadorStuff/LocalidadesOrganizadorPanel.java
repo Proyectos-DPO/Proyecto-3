@@ -15,10 +15,6 @@ import javax.swing.JScrollPane;
 
 import interfaz.VentanaInicio;
 
-/**
- * Panel de "Mis localidades" para un organizador.
- * Layout según tu mockup.
- */
 public class LocalidadesOrganizadorPanel extends JPanel {
 
     private VentanaInicio ventanaInicio;
@@ -30,16 +26,16 @@ public class LocalidadesOrganizadorPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // Barra superior
         BarraOrganizadorLocalidades barra = new BarraOrganizadorLocalidades(ventanaInicio);
         add(barra, BorderLayout.NORTH);
 
-        // Panel central
         JPanel centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBackground(Color.WHITE);
         centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 30, 30));
 
-        // Header "Mis localidades" + botón "Crear Localidad"
+        
+        
+        
         JPanel headerPanel = new JPanel();
         headerPanel.setOpaque(false);
         headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.X_AXIS));
@@ -47,6 +43,8 @@ public class LocalidadesOrganizadorPanel extends JPanel {
         JLabel lblMisLocalidades = new JLabel("Mis localidades");
         lblMisLocalidades.setFont(new Font("Arial", Font.BOLD, 20));
 
+        
+        
         JButton btnCrearLoc = new JButton("Crear Localidad");
         btnCrearLoc.setFont(new Font("Arial", Font.BOLD, 13));
         btnCrearLoc.setFocusPainted(false);
@@ -55,6 +53,7 @@ public class LocalidadesOrganizadorPanel extends JPanel {
         btnCrearLoc.setForeground(Color.WHITE);
         btnCrearLoc.setBorder(BorderFactory.createEmptyBorder(8, 16, 8, 16));
 
+        
         headerPanel.add(lblMisLocalidades);
         headerPanel.add(Box.createRigidArea(new Dimension(15, 0)));
         headerPanel.add(btnCrearLoc);
@@ -62,7 +61,11 @@ public class LocalidadesOrganizadorPanel extends JPanel {
 
         centerPanel.add(headerPanel, BorderLayout.NORTH);
 
-        // Lista de localidades
+        
+        
+        
+        
+        
         listPanel = new JPanel();
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
         listPanel.setBackground(Color.WHITE);
@@ -70,19 +73,25 @@ public class LocalidadesOrganizadorPanel extends JPanel {
 
         cargarLocalidadesDummy();
 
+        
         JScrollPane scroll = new JScrollPane(listPanel);
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.getVerticalScrollBar().setUnitIncrement(16);
 
+        
+        
         centerPanel.add(scroll, BorderLayout.CENTER);
 
         add(centerPanel, BorderLayout.CENTER);
 
-        // TODO: conectar btnCrearLoc con CrearLocalidad.java cuando quieras
     }
 
     private void cargarLocalidadesDummy() {
+    	
+    	
+    	
+    	
         String ganancias = "Ganancias Generales: $3500";
 
         LocalidadOrganizadorCardPanel l1 =
@@ -91,11 +100,15 @@ public class LocalidadesOrganizadorPanel extends JPanel {
         listPanel.add(l1);
         listPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
+        
+        
+        
         LocalidadOrganizadorCardPanel l2 =
             new LocalidadOrganizadorCardPanel("VIP", ganancias);
         l2.setAlignmentX(LEFT_ALIGNMENT);
         listPanel.add(l2);
         listPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        
 
         LocalidadOrganizadorCardPanel l3 =
             new LocalidadOrganizadorCardPanel("Gradas", ganancias);

@@ -11,9 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- * Tarjeta para una localidad en el panel del organizador.
- */
 public class LocalidadOrganizadorCardPanel extends JPanel {
 
     private String nombreLocalidad;
@@ -62,7 +59,6 @@ public class LocalidadOrganizadorCardPanel extends JPanel {
         add(Box.createRigidArea(new Dimension(0, 12)));
         add(botonesPanel);
 
-        // TODO: listeners reales para editar / ver tiquetes
     }
 
     private JButton crearBotonPlano(String texto) {

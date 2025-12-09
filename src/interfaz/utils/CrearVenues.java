@@ -146,7 +146,7 @@ public class CrearVenues extends JPanel implements ActionListener{
     
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
 		String comando = e.getActionCommand();
 		if (comando.equals(SEND)) {
 			SesionAdmin sesion = (SesionAdmin) papa.getSesion();
@@ -154,7 +154,7 @@ public class CrearVenues extends JPanel implements ActionListener{
 				sesion.crearVenue(papa.getDatos(), txtNombre.getText(), Double.valueOf(txtLatitud.getText()), Double.valueOf(txtLongitud.getText()), Integer.valueOf(txtCapacidad.getText()), txtRestricciones.getText());
 				capsula.dispose();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
+				
 				JOptionPane.showMessageDialog(
 				        capsula,
 				        "Error: pusiste mal los datos, pendejo",

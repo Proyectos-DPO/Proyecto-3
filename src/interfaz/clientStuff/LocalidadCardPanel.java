@@ -31,7 +31,8 @@ public class LocalidadCardPanel extends JPanel {
         setPreferredSize(new Dimension(850, 90));
         setMaximumSize(new Dimension(850, 100));
 
-        // Título (nombre localidad)
+        
+        
         JLabel lblTitle = new JLabel(localidad.getNombre());
         lblTitle.setFont(new Font("Arial", Font.BOLD, 18));
         lblTitle.setForeground(Color.DARK_GRAY);
@@ -39,7 +40,9 @@ public class LocalidadCardPanel extends JPanel {
 
         add(Box.createRigidArea(new Dimension(0, 8)));
 
-        // Descripción placeholder
+        
+        
+        
         JLabel lblDesc = new JLabel("Descripcion evento");
         lblDesc.setFont(new Font("Arial", Font.PLAIN, 13));
         lblDesc.setForeground(new Color(120, 120, 120));
@@ -47,15 +50,13 @@ public class LocalidadCardPanel extends JPanel {
 
         add(Box.createVerticalGlue());
 
-        // Botón
+        
         JButton btnIr = new JButton("Ir a localidad");
         btnIr.setAlignmentX(CENTER_ALIGNMENT);
         styleButton(btnIr);
         add(Box.createRigidArea(new Dimension(0, 10)));
         add(btnIr);
 
-        // Aquí después puedes añadir un ActionListener real:
-        // btnIr.addActionListener(e -> abrirVistaAsientos(localidad));
     }
 
     private void styleButton(JButton btn) {

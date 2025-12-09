@@ -13,9 +13,7 @@ import javax.swing.JPanel;
 
 import interfaz.VentanaInicio;
 
-/**
- * Tarjeta de evento en el home del Organizador.
- */
+
 public class OrganizadorEventCardPanel extends JPanel {
 
     private String nombreEvento;
@@ -61,7 +59,6 @@ public class OrganizadorEventCardPanel extends JPanel {
         JButton btnLocalidades = crearBotonPlano("Administrar Localidades");
         JButton btnDescuento   = crearBotonPlano("Crear Descuento");
 
-        // 👉 Aquí conectamos con el nuevo panel
         btnLocalidades.addActionListener(e -> ventanaInicio.mostrarLocalidadesOrganizador());
 
         botonesPanel.add(btnLocalidades);
@@ -71,7 +68,6 @@ public class OrganizadorEventCardPanel extends JPanel {
         add(Box.createRigidArea(new Dimension(0, 12)));
         add(botonesPanel);
 
-        // TODO: conectar btnDescuento con CrearDescuento cuando quieras
     }
 
     private JButton crearBotonPlano(String texto) {

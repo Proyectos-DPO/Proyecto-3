@@ -33,7 +33,7 @@ public class ItemCarritoPanel extends JPanel {
         setPreferredSize(new Dimension(850, 90));
         setMaximumSize(new Dimension(850, 110));
 
-        // Primera línea: título + subtítulo en una misma fila
+        
         JPanel header = new JPanel();
         header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
         header.setOpaque(false);
@@ -50,7 +50,7 @@ public class ItemCarritoPanel extends JPanel {
 
         add(header);
 
-        // Extra info (ej: "-Asiento: 1")
+        
         if (extraInfo != null && !extraInfo.isBlank()) {
             add(Box.createRigidArea(new Dimension(0, 4)));
             JLabel lblExtra = new JLabel(extraInfo);
@@ -61,15 +61,13 @@ public class ItemCarritoPanel extends JPanel {
 
         add(Box.createVerticalGlue());
 
-        // Botón "Sacar del carrito"
+        
         JButton btnSacar = new JButton("Sacar del Carrito");
         btnSacar.setAlignmentX(LEFT_ALIGNMENT);
         styleButton(btnSacar);
         add(Box.createRigidArea(new Dimension(0, 10)));
         add(btnSacar);
 
-        // TODO: aquí puedes agregar el ActionListener real para eliminar del carrito
-        // btnSacar.addActionListener(e -> carrito.removerItem(...));
     }
 
     private void styleButton(JButton btn) {

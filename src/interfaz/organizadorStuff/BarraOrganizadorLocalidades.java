@@ -11,9 +11,6 @@ import javax.swing.JPanel;
 
 import interfaz.VentanaInicio;
 
-/**
- * Barra superior para el panel de "Mis localidades" del Organizador.
- */
 public class BarraOrganizadorLocalidades extends JPanel {
 
     private final Color CORPORATE_PURPLE = new Color(120, 81, 169);
@@ -28,13 +25,11 @@ public class BarraOrganizadorLocalidades extends JPanel {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, CORPORATE_PURPLE));
 
-        // Título "Organizador"
         JLabel lblTitulo = new JLabel("Organizador");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitulo.setForeground(new Color(40, 40, 40));
         add(lblTitulo);
 
-        // Botones
         JButton btnMarket = crearNavButton("Market Place");
         btnMarket.addActionListener(e -> ventanaInicio.showPanel("clientHome"));
         add(btnMarket);
@@ -44,7 +39,6 @@ public class BarraOrganizadorLocalidades extends JPanel {
         add(btnTienda);
 
         JButton btnPeticion = crearNavButton("Crear Peticion");
-        // TODO: lógica real de peticiones
         add(btnPeticion);
 
         JButton btnVolver = crearNavButton("Volver al panel");

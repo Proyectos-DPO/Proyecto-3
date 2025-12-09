@@ -15,9 +15,6 @@ import javax.swing.JScrollPane;
 
 import interfaz.VentanaInicio;
 
-/**
- * Panel principal de la vista Organizador.
- */
 public class OrganizadorHomePanel extends JPanel {
 
     private VentanaInicio ventanaInicio;
@@ -26,6 +23,9 @@ public class OrganizadorHomePanel extends JPanel {
     public OrganizadorHomePanel(VentanaInicio ventanaInicio) {
         this.ventanaInicio = ventanaInicio;
 
+        
+        
+        
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
@@ -37,12 +37,17 @@ public class OrganizadorHomePanel extends JPanel {
         centerPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 30, 30));
 
         JPanel headerPanel = new JPanel();
+        
+        
         headerPanel.setOpaque(false);
         headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.X_AXIS));
 
         JLabel lblMisEventos = new JLabel("Mis eventos");
         lblMisEventos.setFont(new Font("Arial", Font.BOLD, 20));
 
+        
+        
+        
         JButton btnCrearEvento = new JButton("Crear evento");
         btnCrearEvento.setFont(new Font("Arial", Font.BOLD, 13));
         btnCrearEvento.setFocusPainted(false);
@@ -51,6 +56,9 @@ public class OrganizadorHomePanel extends JPanel {
         btnCrearEvento.setForeground(Color.WHITE);
         btnCrearEvento.setBorder(BorderFactory.createEmptyBorder(8, 16, 8, 16));
 
+        
+        
+        
         headerPanel.add(lblMisEventos);
         headerPanel.add(Box.createRigidArea(new Dimension(15, 0)));
         headerPanel.add(btnCrearEvento);
@@ -58,21 +66,37 @@ public class OrganizadorHomePanel extends JPanel {
 
         centerPanel.add(headerPanel, BorderLayout.NORTH);
 
+        
+        
+        
+        
+        
         listPanel = new JPanel();
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
         listPanel.setBackground(Color.WHITE);
         listPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
 
+        
         cargarEventosDummy();
 
+        
+        
+        
+        
         JScrollPane scroll = new JScrollPane(listPanel);
         scroll.setBorder(null);
         scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scroll.getVerticalScrollBar().setUnitIncrement(16);
 
+        
+        
+        
         centerPanel.add(scroll, BorderLayout.CENTER);
 
+        
         add(centerPanel, BorderLayout.CENTER);
+        
+        
     }
 
     private void cargarEventosDummy() {
@@ -82,7 +106,11 @@ public class OrganizadorHomePanel extends JPanel {
                 "Evento de este Organizador  " + i,
                 "Ganancias Generales: $5000"
             );
+            
+            
+            
             card.setAlignmentX(LEFT_ALIGNMENT);
+            
             listPanel.add(card);
             listPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         }

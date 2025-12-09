@@ -161,6 +161,7 @@ public class CrearPeticion extends JPanel implements ActionListener {
 		card.revalidate();
 		card.repaint();
 		papa.pack();
+		papa.setLocationRelativeTo(null);
 	}
 	
 	@Override
@@ -172,7 +173,7 @@ public class CrearPeticion extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
 		Object source = e.getSource();
 		
         if (source == comboTipo) {
