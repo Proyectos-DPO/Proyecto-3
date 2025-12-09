@@ -76,6 +76,8 @@ public class BarraCliente extends JPanel {
         add(btnPeticion);
         add(btnCarrito);
         
+        btnCarrito.addActionListener(e -> ventanaInicio.mostrarCarrito());
+        
         // Separador visual antes del logout
         JPanel spacer = new JPanel();
         spacer.setPreferredSize(new java.awt.Dimension(30, 10));
