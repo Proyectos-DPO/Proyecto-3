@@ -17,37 +17,49 @@ import javax.swing.SwingConstants;
 
 import eventos.Evento;
 import eventos.Localidad;
+import interfaz.VentanaInicio;
 
 public class LocalidadesEventoPanel extends JPanel {
 
     private Evento evento;
+    private VentanaInicio ventanaInicio;
 
-    public LocalidadesEventoPanel(Evento evento) {
+    public LocalidadesEventoPanel(VentanaInicio ventanaInicio, Evento evento) {
         this.evento = evento;
+        this.ventanaInicio = ventanaInicio;
 
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
 
-        // ---------- Barra superior estilo mockup ----------
+        // ---------- BARRA SUPERIOR ----------
         JPanel topBar = new JPanel(new BorderLayout());
         topBar.setBackground(Color.WHITE);
         topBar.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(230, 230, 230)));
 
-        // Logo + título
+        // Título a la izquierda
         JLabel lblTitulo = new JLabel("  Localidades (" + evento.getNombre() + ")", SwingConstants.LEFT);
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 24));
         lblTitulo.setForeground(new Color(40, 40, 40));
         lblTitulo.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 0));
         topBar.add(lblTitulo, BorderLayout.WEST);
 
-        // Botones a la derecha (similares estilo barra)
+        // Panel para los botones a la derecha
         JPanel rightButtons = new JPanel();
         rightButtons.setOpaque(false);
         rightButtons.setLayout(new BoxLayout(rightButtons, BoxLayout.X_AXIS));
         rightButtons.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 20));
 
-        rightButtons.add(crearBotonChip("Crear Peticion"));
+        // 👉 NUEVO BOTÓN: REGRESAR A TIENDA
+        JButton btnRegresar = crearBotonChip("Regresar a Tienda");
+        btnRegresar.addActionListener(e -> {
+            // Volver a la tienda usando VentanaInicio
+            ventanaInicio.showPanel("clientHome");
+        });
+
+        rightButtons.add(btnRegresar);
         rightButtons.add(Box.createRigidArea(new Dimension(10, 0)));
+
+        // Otros botones existentes si quieres mantenerlos
         rightButtons.add(crearBotonChip("Carrito"));
         rightButtons.add(Box.createRigidArea(new Dimension(10, 0)));
         rightButtons.add(crearBotonChip("Log Out"));
@@ -56,15 +68,14 @@ public class LocalidadesEventoPanel extends JPanel {
 
         add(topBar, BorderLayout.NORTH);
 
-        // ---------- Lista de localidades ----------
+        // ---------- LISTADO DE LOCALIDADES ----------
         JPanel listPanel = new JPanel();
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
         listPanel.setBackground(Color.WHITE);
         listPanel.setBorder(BorderFactory.createEmptyBorder(20, 30, 30, 30));
 
         // Obtener localidades del evento
-        // OJO: ajusta este método al que tengas en tu clase Evento
-        List<Localidad<?>> localidades = evento.getLocalidadesAsList();  
+        List<Localidad<?>> localidades = evento.getLocalidadesAsList();
 
         if (localidades == null || localidades.isEmpty()) {
             JLabel lblVacio = new JLabel("Este evento no tiene localidades registradas.");

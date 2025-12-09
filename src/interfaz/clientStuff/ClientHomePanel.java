@@ -118,7 +118,8 @@ public class ClientHomePanel extends JPanel {
         // --- Columna 1: 3 tiquetes individuales de Rock al Parque ---
         if (eventoRock != null) {
             for (int i = 0; i < 3; i++) {
-                EventCardPanel card = new EventCardPanel(eventoRock, "Compra ya");
+                // 👇 Pasamos también la ventanaInicio
+                EventCardPanel card = new EventCardPanel(eventoRock, "Compra ya", ventanaInicio);
                 card.setAlignmentX(LEFT_ALIGNMENT);
                 columnaIndividuales.add(card);
                 columnaIndividuales.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -131,7 +132,7 @@ public class ClientHomePanel extends JPanel {
 
         // --- Columna 2: 1 tiquete múltiple de Bogota Gospel ---
         if (eventoGospel != null) {
-            EventCardPanel card = new EventCardPanel(eventoGospel, "Agregar a Carrito");
+            EventCardPanel card = new EventCardPanel(eventoGospel, "Agregar a Carrito", ventanaInicio);
             card.setAlignmentX(LEFT_ALIGNMENT);
             columnaMultiples.add(card);
             columnaMultiples.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -143,7 +144,7 @@ public class ClientHomePanel extends JPanel {
 
         // --- Columna 3: 1 paquete deluxe de Piriparapu ---
         if (eventoPiri != null) {
-            EventCardPanel card = new EventCardPanel(eventoPiri, "Agregar a Carrito");
+            EventCardPanel card = new EventCardPanel(eventoPiri, "Agregar a Carrito", ventanaInicio);
             card.setAlignmentX(LEFT_ALIGNMENT);
             columnaPaquetes.add(card);
             columnaPaquetes.add(Box.createRigidArea(new Dimension(0, 20)));
