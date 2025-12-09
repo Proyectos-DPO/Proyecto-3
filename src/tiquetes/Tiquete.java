@@ -99,7 +99,8 @@ public abstract class Tiquete extends Articulo{
 	public void setLocalidadTiquete(Localidad<?> localidadTiquete) {
 		this.localidadTiquete = localidadTiquete;
 	}
-	
+
+
 	
 	
 	

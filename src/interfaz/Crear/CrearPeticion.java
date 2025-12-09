@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import interfaz.VentanaInicio;
 import interfaz.utils.CrearVenues;
 
 public class CrearPeticion extends JPanel implements ActionListener {
@@ -31,15 +32,15 @@ public class CrearPeticion extends JPanel implements ActionListener {
     private JComboBox<String> comboObjeto;
     private CrearVenues panelVenue;
     private JPanel card;
-    private JFrame ventana;
     private JLabel lblObjeto;
     
     private String[] listaBoletos;
     private String[] listaEventos;
+    private VentanaInicio papa;
     
-	public CrearPeticion(JFrame ventana, String[] listaBoletos, String[] listaEventos) {
+	public CrearPeticion(VentanaInicio papa, String[] listaBoletos, String[] listaEventos) {
 		
-		this.ventana = ventana;
+		this.papa = papa;
 		
 		setLayout(new BorderLayout());
         setBackground(new Color(243,243,243));
@@ -97,7 +98,7 @@ public class CrearPeticion extends JPanel implements ActionListener {
      
         
         // no visible
-        panelVenue = new CrearVenues();
+        panelVenue = new CrearVenues(papa, this);
         panelVenue.hideTitle();
         panelVenue.hideButton();
         panelVenue.setAlignmentX(LEFT_ALIGNMENT);
@@ -128,7 +129,6 @@ public class CrearPeticion extends JPanel implements ActionListener {
 			comboObjeto.setVisible(false);
 			panelVenue.setVisible(true);
 			lblObjeto.setVisible(true);
-			
 			break;
 		case "Cancelar Evento":
 			comboObjeto.setModel(new DefaultComboBoxModel<>(listaEventos));
