@@ -42,6 +42,7 @@ public abstract class Tiquete extends Articulo{
 		return precioVenta;
 	}
 
+	
 
 	protected void setPrecioVenta(double precioVenta) {
 		this.precioVenta = precioVenta;

@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -13,8 +14,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import data.Datos;
 import interfaz.VentanaInicio;
-
+import sesion.Sesion;
+import sesion.SesionCliente;
+import tiquetes.Tiquete;
+import tiquetes.TiqueteIndividual;
+import usuarios.Cliente;
+import usuarios.Usuario;
 
 public class CuentaClientePanel extends JPanel {
 
@@ -33,7 +40,7 @@ public class CuentaClientePanel extends JPanel {
         header.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(230, 230, 230)));
         header.setPreferredSize(new Dimension(100, 70));
 
-        JLabel lblLogo = new JLabel("Ꝃ"); 
+        JLabel lblLogo = new JLabel("Ꝃ");
         lblLogo.setFont(new Font("Arial", Font.BOLD, 24));
         lblLogo.setForeground(Color.BLACK);
 
@@ -54,7 +61,7 @@ public class CuentaClientePanel extends JPanel {
         header.add(crearChipButton("Mis ofertas"));
         header.add(Box.createRigidArea(new Dimension(12, 0)));
 
-        header.add(crearChipButton("Adminirnar Peticiones")); // se puede corregir el texto luego
+        header.add(crearChipButton("Administrar Peticiones"));
         header.add(Box.createRigidArea(new Dimension(12, 0)));
 
         header.add(crearChipButton("Fijar Cuotas"));
@@ -92,12 +99,7 @@ public class CuentaClientePanel extends JPanel {
         listaTickets.setBackground(Color.WHITE);
         listaTickets.setBorder(BorderFactory.createEmptyBorder(16, 0, 0, 0));
 
-        for (int i = 0; i < 4; i++) {
-            TicketCuentaPanel ticketPanel = new TicketCuentaPanel("1234qqwewffñji1234", "-Asiento: 1");
-            ticketPanel.setAlignmentX(LEFT_ALIGNMENT);
-            listaTickets.add(ticketPanel);
-            listaTickets.add(Box.createRigidArea(new Dimension(0, 12)));
-        }
+        cargarTiquetesCliente(listaTickets);
 
         JScrollPane scroll = new JScrollPane(listaTickets);
         scroll.setBorder(null);
@@ -105,9 +107,56 @@ public class CuentaClientePanel extends JPanel {
         scroll.getVerticalScrollBar().setUnitIncrement(16);
 
         card.add(scroll, BorderLayout.CENTER);
-
         contentWrapper.add(card, BorderLayout.CENTER);
         add(contentWrapper, BorderLayout.CENTER);
+    }
+
+    private void cargarTiquetesCliente(JPanel listaTickets) {
+        Sesion sesion = ventanaInicio.getSesion();
+        if (!(sesion instanceof SesionCliente)) {
+            JLabel lbl = new JLabel("No hay un cliente autenticado.");
+            lbl.setFont(new Font("Arial", Font.ITALIC, 13));
+            listaTickets.add(lbl);
+            return;
+        }
+
+        String login = sesion.getLogin();
+        Datos datos = ventanaInicio.getDatos();
+        Usuario usuario = datos.getUsuario(login);
+
+        if (!(usuario instanceof Cliente)) {
+            JLabel lbl = new JLabel("El usuario actual no es un cliente.");
+            lbl.setFont(new Font("Arial", Font.ITALIC, 13));
+            listaTickets.add(lbl);
+            return;
+        }
+
+        Cliente cliente = (Cliente) usuario;
+        if (cliente.getTiquetes() == null || cliente.getTiquetes().isEmpty()) {
+            JLabel lbl = new JLabel("Aún no tienes tiquetes.");
+            lbl.setFont(new Font("Arial", Font.ITALIC, 13));
+            listaTickets.add(lbl);
+            return;
+        }
+
+        for (Map.Entry<String, Tiquete> entry : cliente.getTiquetes().entrySet()) {
+            Tiquete t = entry.getValue();
+
+            if (t instanceof TiqueteIndividual) {
+                TiqueteIndividual ti = (TiqueteIndividual) t;
+
+                TicketCuentaPanel ticketPanel =
+                        new TicketCuentaPanel(
+                                ti.getId(),                             // id del tiquete
+                                "-Asiento: " + ti.getIdAsiento(),       // texto de asiento
+                                ti,
+                                ventanaInicio                           // para abrir el QR
+                        );
+                ticketPanel.setAlignmentX(LEFT_ALIGNMENT);
+                listaTickets.add(ticketPanel);
+                listaTickets.add(Box.createRigidArea(new Dimension(0, 12)));
+            }
+        }
     }
 
     private JButton crearChipButton(String texto) {
