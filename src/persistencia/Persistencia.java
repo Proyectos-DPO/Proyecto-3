@@ -270,6 +270,9 @@ public class Persistencia {
 			}
 			organizador.getEventos().put(eventito.getNombre(), eventito);
 			mapaEventos.put(eventito.getNombre(), eventito);
+			for (Localidad<?> loc: mapaLocalidades.values()) {
+				loc.setEvento(eventito);
+			}
 		}
 		
 		return mapaEventos;
